@@ -158,9 +158,9 @@ var options = {
 return request.server.plugins['plugin-harvest'].getBaskets( options );
 ```
 
-## Tests
+## Contributing
 
-Code is linted by ".jshintrc" and checked against the coding style guide "shortbreaks.jscs.json" when you run ` $ grunt test `
+Code is linted by ".jshintrc" and checked against the coding style guide "shortbreaks.jscs.json". We also use Mocha to test our code, to run all of this use ` $ grunt test `.
 
 ## License
 Copyright (c) 2015 Shortbreaks
