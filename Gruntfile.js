@@ -29,14 +29,6 @@ module.exports = function( grunt ) {
 				config: 'shortbreaks.jscs.json'
 			},
 			src: ['<%= jshint.core.src %>', '<%= jshint.test.src %>']
-		},
-		githooks: {
-			all: {
-				options: {
-					preventExit: true
-				},
-				'pre-commit': 'jshint jscs mochaTest'
-			}
 		}
 	} );
 
@@ -44,10 +36,8 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-contrib-jshint' );
 	grunt.loadNpmTasks( 'grunt-jscs' );
 	grunt.loadNpmTasks( 'grunt-mocha-test' );
-	grunt.loadNpmTasks( 'grunt-githooks' );
 
 	// register task alias'
-	grunt.registerTask( 'default', ['jshint', 'jscs', 'mochaTest'] );
-	grunt.registerTask( 'test', ['mochaTest'] );
+	grunt.registerTask( 'test', ['jshint', 'jscs', 'mochaTest'] );
 
 };

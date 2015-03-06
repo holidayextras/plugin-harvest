@@ -4,7 +4,7 @@
 
 ## About
 
-Works Plugin to connect to a CouchDB database with encoded baskets
+Hapi plugin to connect to a CouchDB database with encoded baskets
 
 ## Getting Started
 
@@ -158,30 +158,10 @@ var options = {
 return request.server.plugins['plugin-harvest'].getBaskets( options );
 ```
 
-#### EditorConfig
-
-EditorConfig helps us define and maintain consistent coding styles between different editors and IDEs.  If you are using Sublime Editor you can install the `EditorConfig` using [Package Control](https://sublime.wbond.net).
-
-For non Sublime development a bunch of other IDE plugins are available [here](http://editorconfig.org/#download)
-
-## Documentation
-
-Visit our [bitbucket](https://bitbucket.org/hxshortbreaks/) website for all the things.
-
-## Notes on coding style
-
-Code is linted by ".jshintrc" and checked against the coding style guide "shortbreaks.jscs.json" when you run the default grunt task:
-```
-$ grunt
-```
-
 ## Tests
 
-Tests will run using the default grunt task but can also be called stand-alone using:
-```
-$ grunt test
-```
+Code is linted by ".jshintrc" and checked against the coding style guide "shortbreaks.jscs.json" when you run ` $ grunt test `
 
 ## License
-Copyright (c) 2014 Shortbreaks
+Copyright (c) 2015 Shortbreaks
 Licensed under the MIT license.
