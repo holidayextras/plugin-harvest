@@ -1,6 +1,6 @@
 {
   "name": "plugin-harvest",
-  "description": "Hapi Plugin to connect to a CouchDB database with encoded baskets",
+  "description": "A hapi Plugin to connect to a CouchDB database with encoded baskets",
   "version": "1.2.1",
   "homepage": "https://github.com/holidayextras/plugin-harvest",
   "author": {

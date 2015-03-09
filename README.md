@@ -4,7 +4,7 @@
 
 ## About
 
-Hapi plugin to connect to a CouchDB database with encoded baskets
+A [hapi](http://hapijs.com/) plugin to connect to a CouchDB database with encoded baskets
 
 ## Getting Started
 
@@ -160,7 +160,7 @@ return request.server.plugins['plugin-harvest'].getBaskets( options );
 
 ## Contributing
 
-Code is linted by ".jshintrc" and checked against the coding style guide "shortbreaks.jscs.json". We also use Mocha to test our code, to run all of this use ` $ grunt test `.
+Code is linted by '.jshintrc' and checked against the coding style guide 'shortbreaks.jscs.json'. We also use Mocha to test our code, to run all of this use ` $ grunt test `.
 
 ## License
 Copyright (c) 2015 Shortbreaks
