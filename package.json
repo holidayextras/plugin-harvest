@@ -17,7 +17,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test && istanbul cover _mocha -- tests/ -R spec"
   },
   "dependencies": {
     "harvest": "git+ssh://git@bitbucket.org/hxshortbreaks/harvest.git",
@@ -28,12 +28,13 @@
   "devDependencies": {
     "chai": "1.10.0",
     "chai-as-promised": "4.1.1",
-    "grunt": "0.4.3",
+    "grunt": "~0.4.5",
     "grunt-contrib-jshint": "0.10.0",
     "grunt-jscs": "1.2.0",
-    "grunt-mocha-test": "0.12.0",
+    "grunt-mocha-test": "0.12.7",
     "hapi": "6.4.0",
     "istanbul": "0.3.5",
+    "mocha": "2.1.0",
     "rewire": "2.1.5",
     "sinon": "1.12.2"
   }

@@ -10,7 +10,7 @@ module.exports = function( grunt ) {
 				options: {
 					reporter: 'spec'
 				},
-				src: ['test/**/*Test.js']
+				src: ['tests/**/*Test.js']
 			}
 		},
 		jshint: {
@@ -21,7 +21,7 @@ module.exports = function( grunt ) {
 				src: ['*.js', 'lib/**/*.js']
 			},
 			test: {
-				src: ['test/**/*.js']
+				src: ['tests/**/*.js']
 			}
 		},
 		jscs: {
