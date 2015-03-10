@@ -1,39 +1,18 @@
-# Language setting
-language: node_js
-
-# Version number
-node_js:
-	- 0.10.30
-
-# Create directories for test and coverage reports
-before_script:
-	- mkdir -p shippable/testresults
-	- mkdir -p shippable/codecoverage
-	- export XUNIT_FILE=shippable/testresults/results.xml
-
-# Running the tests with grunt
-script:
-	- npm test
-
-# Only let people know when the build has changed
-# We don't want to spam failures
-notifications:
-	email:
-		recipients:
-			- sophie.george@holidayextras.com
-		on_success: always
-		on_failure: change
-
-# Setup our environment with the IAM credentials
-# that enable the after_success `aws cp` to execute
-# we're using IAM user "shippable"
-env:
-	global:
-
-# Tell istanbul to generate a coverage report
 after_script:
-	- ./node_modules/.bin/istanbul cover grunt test -- -u tdd
-	- ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
-
-# install tools for AWS access and then zip (minus package.json to stop the auto npm install on server) and push to our S3 bucket
-after_success:
+  - "./node_modules/.bin/istanbul cover grunt test -- -u tdd"
+  - "./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/"
+before_script:
+  - "mkdir -p shippable/testresults"
+  - "mkdir -p shippable/codecoverage"
+  - "export XUNIT_FILE=shippable/testresults/results.xml"
+language: node_js
+node_js:
+  - "0.10.30"
+notifications:
+  email:
+    on_failure: change
+    on_success: always
+    recipients:
+      - sophie.george@holidayextras.com
+script:
+  - "npm test"
