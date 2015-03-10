@@ -2,7 +2,6 @@
 'use strict';
 
 var makeup = require( 'make-up' );
-
 module.exports = function( grunt ) {
 
 	// project configuration
