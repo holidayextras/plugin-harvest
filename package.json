@@ -1,7 +1,7 @@
 {
   "name": "plugin-harvest",
   "description": "A hapi Plugin to connect to a CouchDB database with encoded baskets",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "homepage": "https://github.com/holidayextras/plugin-harvest",
   "author": {
     "name": "Shortbreaks",
@@ -17,10 +17,10 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test && istanbul cover _mocha -- test/ -R spec"
   },
   "dependencies": {
-    "harvest": "git+ssh://git@bitbucket.org/hxshortbreaks/harvest.git",
+    "harvest": "git+ssh://git@github.com:holidayextras/harvest.git",
     "lodash": "3.1.0",
     "nano": "6.0.2",
     "q": "1.1.2"
@@ -28,12 +28,14 @@
   "devDependencies": {
     "chai": "1.10.0",
     "chai-as-promised": "4.1.1",
-    "grunt": "0.4.3",
+    "grunt": "~0.4.5",
     "grunt-contrib-jshint": "0.10.0",
     "grunt-jscs": "1.2.0",
-    "grunt-mocha-test": "0.12.0",
+    "grunt-mocha-test": "0.12.7",
     "hapi": "6.4.0",
     "istanbul": "0.3.5",
+    "make-up": "^1.0.3",
+    "mocha": "2.1.0",
     "rewire": "2.1.5",
     "sinon": "1.12.2"
   }

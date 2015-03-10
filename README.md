@@ -1,6 +1,6 @@
 # plugin-harvest
 
-[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[ ![Codeship Status for holidayextras/plugin-harvest](https://codeship.com/projects/62250940-a94d-0132-c724-1e47e7423a87/status?branch=master)](https://codeship.com/projects/67631)
 
 ## About
 
@@ -160,7 +160,7 @@ return request.server.plugins['plugin-harvest'].getBaskets( options );
 
 ## Contributing
 
-Code is linted by '.jshintrc' and checked against the coding style guide 'shortbreaks.jscs.json'. We also use Mocha to test our code, to run all of this use ` $ grunt test `.
+Code is linted checked against the style guide with [make-up](https://github.com/holidayextras/make-up), running npm test will run all tests required.
 
 ## License
 Copyright (c) 2015 Shortbreaks
