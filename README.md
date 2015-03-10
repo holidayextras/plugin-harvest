@@ -1,6 +1,6 @@
 # plugin-harvest
 
-[![Build Status](https://travis-ci.org/holidayextras/plugin-harvest.svg)](https://travis-ci.org/holidayextras/plugin-harvest)
+[ ![Codeship Status for holidayextras/plugin-harvest](https://codeship.com/projects/62250940-a94d-0132-c724-1e47e7423a87/status?branch=master)](https://codeship.com/projects/67631)
 
 ## About
 
