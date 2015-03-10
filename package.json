@@ -20,7 +20,7 @@
     "test": "grunt test && istanbul cover _mocha -- test/ -R spec"
   },
   "dependencies": {
-    "harvest": "https://github.com/holidayextras/harvest",
+    "harvest": "git+ssh://git@github.com:holidayextras/harvest.git",
     "lodash": "3.1.0",
     "nano": "6.0.2",
     "q": "1.1.2"
