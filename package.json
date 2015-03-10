@@ -17,7 +17,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "grunt test && istanbul cover _mocha -- tests/ -R spec"
+    "test": "grunt test && istanbul cover _mocha -- test/ -R spec"
   },
   "dependencies": {
     "harvest": "git+ssh://git@github.com:holidayextras/harvest.git",
