@@ -1,3 +1,5 @@
+## **1.2.3**
+- [**WEB-4809**](https://hxshortbreaks.atlassian.net/browse/WEB-4809) - Swapping build agent to Shippable.
 ## **1.2.2**
 - [**WEB-4542**](https://hxshortbreaks.atlassian.net/browse/WEB-4542) Upgrade coding styles to current level.
 ## **1.2.1**
