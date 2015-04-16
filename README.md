@@ -1,6 +1,6 @@
 # plugin-harvest
 
-[ ![Codeship Status for holidayextras/plugin-harvest](https://codeship.com/projects/62250940-a94d-0132-c724-1e47e7423a87/status?branch=master)](https://codeship.com/projects/67631)
+[![Build Status](https://api.shippable.com/projects/54ff09505ab6cc135296f99a/badge?branchName=master)](https://app.shippable.com/projects/54ff09505ab6cc135296f99a/builds/latest)
 
 ## About
 
@@ -99,7 +99,7 @@ return request.server.plugins['plugin-harvest'].getBasket( options );
 ```
 
 ### Function: getBaskets
-This function calls Design Documents on the CouchDB instance to retrieve collections of baskets based on what has been passed in.  
+This function calls Design Documents on the CouchDB instance to retrieve collections of baskets based on what has been passed in.
 _Please note the Design Documents may need to be manually created on your local CouchDB instance_
 
 After finding the matching baskets each basket will be returned with its shared representation.
