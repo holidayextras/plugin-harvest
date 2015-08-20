@@ -129,7 +129,7 @@ describe( 'LIB: getBaskets', function() {
 		done();
 	} );
 
-		it( 'getBaskets should call the email_baskets::by_created_at design document even if timestamps not passed in', function( done ) {
+	it( 'getBaskets should call the email_baskets::by_created_at design document even if timestamps not passed in', function( done ) {
 		sinon.spy( successfulHarvestDb, 'view' );
 		getBaskets( harvest, successfulHarvestDb, { type: 'email' } );
 		successfulHarvestDb.view.should.be.calledOnce;
