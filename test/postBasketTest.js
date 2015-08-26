@@ -87,4 +87,21 @@ describe( 'LIB: postBasket', function() {
 		done();
 	} );
 
+	describe( 'exceptions thrown', function() {
+
+		before( function() {
+			sinon.stub( harvest, 'getSharedBasket', function() {
+				throw new Error( 'Fake error' );
+			} );
+		} );
+
+		it( 'postBasket should reject if Harvest getSharedBasket throws an error', function() {
+			return postBasket( harvest, successfulHarvestDb, loadTestResource( './fixtures/requestWithIdAndTag' ) ).should.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
+		} );
+
+		after( function() {
+			harvest.getSharedBasket.restore();
+		} );
+	} );
+
 } );

@@ -122,4 +122,38 @@ describe( 'LIB: putBasket', function() {
 		done();
 	} );
 
+	describe( 'exception thrown in saveBasket', function() {
+
+		before( function() {
+			sinon.stub( harvest, 'saveBasket', function() {
+				throw new Error( 'Fake error' );
+			} );
+		} );
+
+		it( 'postBasket should reject if Harvest saveBasket throws an error', function() {
+			return putBasket( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTag' ) ).should.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
+		} );
+
+		after( function() {
+			harvest.saveBasket.restore();
+		} );
+	} );
+
+	describe( 'exception thrown in getSharedBasket', function() {
+
+		before( function() {
+			sinon.stub( harvest, 'getSharedBasket', function() {
+				throw new Error( 'Fake error' );
+			} );
+		} );
+
+		it( 'postBasket should reject if Harvest getSharedBasket throws an error', function() {
+			return putBasket( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTag' ) ).should.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
+		} );
+
+		after( function() {
+			harvest.getSharedBasket.restore();
+		} );
+	} );
+
 } );

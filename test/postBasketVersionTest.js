@@ -130,4 +130,38 @@ describe( 'LIB: postBasketVersion', function() {
 		done();
 	} );
 
+	describe( 'exception thrown in addVersion', function() {
+
+		before( function() {
+			sinon.stub( harvest, 'addVersion', function() {
+				throw new Error( 'Fake error' );
+			} );
+		} );
+
+		it( 'postBasket should reject if Harvest addVersion throws an error', function() {
+			return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ).should.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
+		} );
+
+		after( function() {
+			harvest.addVersion.restore();
+		} );
+	} );
+
+	describe( 'exception thrown in getSharedBasket', function() {
+
+		before( function() {
+			sinon.stub( harvest, 'getSharedBasket', function() {
+				throw new Error( 'Fake error' );
+			} );
+		} );
+
+		it( 'postBasket should reject if Harvest getSharedBasket throws an error', function() {
+			return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ).should.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
+		} );
+
+		after( function() {
+			harvest.getSharedBasket.restore();
+		} );
+	} );
+
 } );
