@@ -1,6 +1,6 @@
 # plugin-harvest
 
-[![Build Status](https://api.shippable.com/projects/54ff09505ab6cc135296f99a/badge?branchName=master)](https://app.shippable.com/projects/54ff09505ab6cc135296f99a/builds/latest)
+[![Circle CI](https://circleci.com/gh/holidayextras/plugin-harvest/tree/master.svg?style=svg&circle-token=05a70f71a614d4fe9b05c67972e171fec72a3687)](https://circleci.com/gh/holidayextras/plugin-harvest)
 
 ## About
 
