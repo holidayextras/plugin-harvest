@@ -5,7 +5,7 @@ var Hapi = require( 'hapi' );
 var chai = require( 'chai' );
 var chaiAsPromised = require( 'chai-as-promised' );
 chai.use( chaiAsPromised );
-chai.should();
+var expect = chai.expect;
 var sinon = require( 'sinon' );
 var rewire = require( 'rewire' );
 var Q = require( 'q' );
@@ -50,17 +50,16 @@ describe( 'LIB: pluginHarvest', function() {
     };
   } );
 
-  it( 'should allow us to access the plugin off the hapi server', function( done ) {
-    plugin.should.not.be.an( 'undefined' );
-    done();
+  it( 'should allow us to access the plugin off the hapi server', function() {
+    expect( plugin ).to.not.be.undefined;
   } );
 
   it( 'should expose getBasket as a function', function() {
     pluginHarvest.__set__( 'getBasket', pluginFunction );
     var getBasketSpy = sinon.spy( pluginFunction );
     return plugin.getBasket().then( function() {
-      plugin.getBasket.should.be.a( 'function' );
-      getBasketSpy.should.be.calledOnce;
+      expect( plugin.getBasket ).to.be.a( 'function' );
+      expect( getBasketSpy ).to.be.calledOnce;
     } );
   } );
 
@@ -68,8 +67,8 @@ describe( 'LIB: pluginHarvest', function() {
     pluginHarvest.__set__( 'getBaskets', pluginFunction );
     var getBasketsSpy = sinon.spy( pluginFunction );
     return plugin.getBaskets().then( function() {
-      plugin.getBaskets.should.be.a( 'function' );
-      getBasketsSpy.should.be.calledOnce;
+      expect( plugin.getBaskets ).to.be.a( 'function' );
+      expect( getBasketsSpy ).to.be.calledOnce;
     } );
   } );
 
@@ -77,8 +76,8 @@ describe( 'LIB: pluginHarvest', function() {
     pluginHarvest.__set__( 'postBasket', pluginFunction );
     var postBasketSpy = sinon.spy( pluginFunction );
     return plugin.postBasket().then( function() {
-      plugin.postBasket.should.be.a( 'function' );
-      postBasketSpy.should.be.calledOnce;
+      expect( plugin.postBasket ).to.be.a( 'function' );
+      expect( postBasketSpy ).to.be.calledOnce;
     } );
   } );
 
@@ -86,8 +85,8 @@ describe( 'LIB: pluginHarvest', function() {
     pluginHarvest.__set__( 'putBasket', pluginFunction );
     var putBasketSpy = sinon.spy( pluginFunction );
     return plugin.putBasket().then( function() {
-      plugin.putBasket.should.be.a( 'function' );
-      putBasketSpy.should.be.calledOnce;
+      expect( plugin.putBasket ).to.be.a( 'function' );
+      expect( putBasketSpy ).to.be.calledOnce;
     } );
   } );
 
@@ -95,8 +94,8 @@ describe( 'LIB: pluginHarvest', function() {
     pluginHarvest.__set__( 'postBasketVersion', pluginFunction );
     var postBasketVersionSpy = sinon.spy( pluginFunction );
     return plugin.postBasketVersion().then( function() {
-      plugin.postBasketVersion.should.be.a( 'function' );
-      postBasketVersionSpy.should.be.calledOnce;
+      expect( plugin.postBasketVersion ).to.be.a( 'function' );
+      expect( postBasketVersionSpy ).to.be.calledOnce;
     } );
   } );
 

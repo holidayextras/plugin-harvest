@@ -5,7 +5,7 @@ var _ = require( 'lodash' );
 var chai = require( 'chai' );
 var chaiAsPromised = require( 'chai-as-promised' );
 chai.use( chaiAsPromised );
-chai.should();
+var expect = chai.expect;
 var sinon = require( 'sinon' );
 
 var postBasketVersion = require( '../lib/postBasketVersion' );
@@ -52,54 +52,54 @@ describe( 'LIB: postBasketVersion', function() {
 
   it( 'postBasketVersion should throw an error if there is no options object', function() {
     return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert ).then( function() {}, function( error ) {
-      error.should.have.property( 'error' ).that.is.an.instanceof( TypeError );
-      error.error.message.should.equal( 'invalid options' );
-      error.should.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
+      expect( error ).to.have.property( 'error' ).that.is.an.instanceof( TypeError );
+      expect( error.error.message ).to.equal( 'invalid options' );
+      expect( error ).to.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
     } );
   } );
 
   it( 'postBasketVersion should throw an error if there is no options.id', function() {
     return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithTag' ) ).then( function() {}, function( error ) {
-      error.should.have.property( 'error' ).that.is.an.instanceof( TypeError );
-      error.error.message.should.equal( 'invalid options.id' );
-      error.should.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
+      expect( error ).to.have.property( 'error' ).that.is.an.instanceof( TypeError );
+      expect( error.error.message ).to.equal( 'invalid options.id' );
+      expect( error ).to.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
     } );
   } );
 
   it( 'postBasketVersion should throw an error if there is no options.tag', function() {
     return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithId' ) ).then( function() {}, function( error ) {
-      error.should.have.property( 'error' ).that.is.an.instanceof( TypeError );
-      error.error.message.should.equal( 'invalid options.tag' );
-      error.should.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
+      expect( error ).to.have.property( 'error' ).that.is.an.instanceof( TypeError );
+      expect( error.error.message ).to.equal( 'invalid options.tag' );
+      expect( error ).to.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
     } );
   } );
 
   it( 'postBasketVersion should throw an error if there is no options.version', function() {
     return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTag' ) ).then( function() {}, function( error ) {
-      error.should.have.property( 'error' ).that.is.an.instanceof( TypeError );
-      error.error.message.should.equal( 'invalid options.version' );
-      error.should.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
+      expect( error ).to.have.property( 'error' ).that.is.an.instanceof( TypeError );
+      expect( error.error.message ).to.equal( 'invalid options.version' );
+      expect( error ).to.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
     } );
   } );
 
   it( 'postBasketVersion should reject if the document store throws an error on select', function() {
     return postBasketVersion( harvest, harvestDbWithFailedGet, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ).then( function() {}, function( error ) {
-      error.error.should.equal( 'An error has occurred getting document' );
-      error.should.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
+      expect( error.error ).to.equal( 'An error has occurred getting document' );
+      expect( error ).to.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
     } );
   } );
 
   it( 'postBasketVersion should reject if the document store throws an error on select', function() {
     return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndFailedInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ).then( function() {}, function( error ) {
-      error.error.should.equal( 'An error has occurred inserting document' );
-      error.should.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
+      expect( error.error ).to.equal( 'An error has occurred inserting document' );
+      expect( error ).to.have.property( 'origin' ).that.is.equal( 'pluginHarvest' );
     } );
   } );
 
   it( 'postBasketVersion should get a basket from a document store based on the current id', function( done ) {
     sinon.spy( harvestDbWithSuccessfulGetAndInsert, 'get' );
     postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) );
-    harvestDbWithSuccessfulGetAndInsert.get.calledOnce.should.be.true;
+    expect( harvestDbWithSuccessfulGetAndInsert.get.calledOnce ).to.be.true;
     harvestDbWithSuccessfulGetAndInsert.get.restore();
     done();
   } );
@@ -107,7 +107,7 @@ describe( 'LIB: postBasketVersion', function() {
   it( 'postBasketVersion should ask Harvest to add a version to the basket', function( done ) {
     sinon.spy( harvest, 'addVersion' );
     postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) );
-    harvest.addVersion.calledOnce.should.be.true;
+    expect( harvest.addVersion.calledOnce ).to.be.true;
     harvest.addVersion.restore();
     done();
   } );
@@ -115,7 +115,7 @@ describe( 'LIB: postBasketVersion', function() {
   it( 'postBasketVersion should insert the basket to the document store', function( done ) {
     sinon.spy( harvestDbWithSuccessfulGetAndInsert, 'insert' );
     postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) );
-    harvestDbWithSuccessfulGetAndInsert.insert.calledOnce.should.be.true;
+    expect( harvestDbWithSuccessfulGetAndInsert.insert.calledOnce ).to.be.true;
     harvestDbWithSuccessfulGetAndInsert.insert.restore();
     done();
   } );
@@ -123,7 +123,7 @@ describe( 'LIB: postBasketVersion', function() {
   it( 'postBasketVersion should ask Harvest to get a shared basket based on the basket that has been stored in the document store', function( done ) {
     sinon.spy( harvest, 'getSharedBasket' );
     postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) );
-    harvest.getSharedBasket.calledOnce.should.be.true;
+    expect( harvest.getSharedBasket.calledOnce ).to.be.true;
     harvest.getSharedBasket.restore();
     done();
   } );
@@ -137,7 +137,7 @@ describe( 'LIB: postBasketVersion', function() {
     } );
 
     it( 'postBasket should reject if Harvest addVersion throws an error', function() {
-      return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ).should.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
+      return expect( postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ) ).to.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
     } );
 
     after( function() {
@@ -154,7 +154,7 @@ describe( 'LIB: postBasketVersion', function() {
     } );
 
     it( 'postBasket should reject if Harvest getSharedBasket throws an error', function() {
-      return postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ).should.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
+      return expect( postBasketVersion( harvest, harvestDbWithSuccessfulGetAndInsert, loadTestResource( './fixtures/requestWithIdAndTagAndVersion' ) ) ).to.be.rejected.and.eventually.have.property( 'error' ).that.is.an.instanceof( Error );
     } );
 
     after( function() {
