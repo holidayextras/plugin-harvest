@@ -36,10 +36,10 @@ describe( 'LIB: pluginHarvest', function() {
       };
     };
     // and then register this plugin to that server along with soe demo secureKeys
-    server.pack.register( {
-      plugin: pluginHarvest,
+    server.register([ {
+      register: pluginHarvest,
       options: {}
-    }, function() {
+    }], function() {
       // give easy access to our plugin
       plugin = server.plugins['plugin-harvest'];
       done();
