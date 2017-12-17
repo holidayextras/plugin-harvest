@@ -20,7 +20,7 @@ var plugin;
 describe( 'LIB: pluginHarvest', function() {
   var pluginFunction;
 
-  before( function( done ) {
+  before( async function( ) {
 
     // need to start up a server
     server = new Hapi.Server();
@@ -36,15 +36,9 @@ describe( 'LIB: pluginHarvest', function() {
       };
     };
     // and then register this plugin to that server along with soe demo secureKeys
-    server.register([ {
-      register: pluginHarvest,
-      options: {}
-    }], function() {
-      // give easy access to our plugin
-      plugin = server.plugins['plugin-harvest'];
-      done();
-    } );
-
+    await server.register(pluginHarvest)
+    
+    plugin = server.plugins['plugin-harvest'];
     pluginFunction = function() {
       return Q.resolve();
     };
