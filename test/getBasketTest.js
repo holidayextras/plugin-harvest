@@ -60,7 +60,7 @@ describe('LIB: getBasket', function () {
 
   it('getBasket should reject if the document store throws an error', function () {
     return getBasket(harvest, failedHarvestDb, loadTestResource('./fixtures/requestWithIdAndTag')).then(function () {}, function (error) {
-      expect(error.error).to.equal('An error has occurred')
+      expect(error.error.message).to.equal('An error has occurred')
       expect(error).to.have.property('origin').that.is.equal('pluginHarvest')
     })
   })

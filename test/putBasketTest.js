@@ -75,14 +75,14 @@ describe('LIB: putBasket', function () {
 
   it('putBasket should reject if the document store throws an error on select', function () {
     return putBasket(harvest, harvestDbWithFailedGet, loadTestResource('./fixtures/requestWithIdAndTag')).then(function () {}, function (error) {
-      expect(error.error).to.equal('An error has occurred getting document')
+      expect(error.error.message).to.equal('An error has occurred getting document')
       expect(error).to.have.property('origin').that.is.equal('pluginHarvest')
     })
   })
 
   it('putBasket should reject if the document store throws an error on select', function () {
     return putBasket(harvest, harvestDbWithSuccessfulGetAndFailedInsert, loadTestResource('./fixtures/requestWithIdAndTag')).then(function () {}, function (error) {
-      expect(error.error).to.equal('An error has occurred inserting document')
+      expect(error.error.message).to.equal('An error has occurred inserting document')
       expect(error).to.have.property('origin').that.is.equal('pluginHarvest')
     })
   })

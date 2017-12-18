@@ -83,14 +83,14 @@ describe('LIB: postBasketVersion', function () {
 
   it('postBasketVersion should reject if the document store throws an error on select', function () {
     return postBasketVersion(harvest, harvestDbWithFailedGet, loadTestResource('./fixtures/requestWithIdAndTagAndVersion')).then(function () {}, function (error) {
-      expect(error.error).to.equal('An error has occurred getting document')
+      expect(error.error.message).to.equal('An error has occurred getting document')
       expect(error).to.have.property('origin').that.is.equal('pluginHarvest')
     })
   })
 
   it('postBasketVersion should reject if the document store throws an error on select', function () {
     return postBasketVersion(harvest, harvestDbWithSuccessfulGetAndFailedInsert, loadTestResource('./fixtures/requestWithIdAndTagAndVersion')).then(function () {}, function (error) {
-      expect(error.error).to.equal('An error has occurred inserting document')
+      expect(error.error.message).to.equal('An error has occurred inserting document')
       expect(error).to.have.property('origin').that.is.equal('pluginHarvest')
     })
   })

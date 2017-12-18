@@ -58,7 +58,7 @@ describe('LIB: getBaskets', function () {
 
   it('getBaskets should reject if the design document throws an error', function () {
     return getBaskets(harvest, failedHarvestDb, loadTestResource('./fixtures/searchWithPin')).then(function () {}, function (error) {
-      expect(error.error).to.equal('An error has occurred')
+      expect(error.error.message).to.equal('An error has occurred')
       expect(error).to.have.property('origin').that.is.equal('pluginHarvest')
     })
   })

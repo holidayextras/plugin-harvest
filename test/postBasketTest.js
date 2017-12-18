@@ -55,7 +55,7 @@ describe('LIB: postBasket', function () {
 
   it('postBasket should reject if the document store throws an error', function () {
     return postBasket(harvest, failedHarvestDb, loadTestResource('./fixtures/requestWithIdAndTag')).then(function () {}, function (error) {
-      expect(error.error).to.equal('An error has occurred')
+      expect(error.error.message).to.equal('An error has occurred')
       expect(error).to.have.property('origin').that.is.equal('pluginHarvest')
     })
   })
