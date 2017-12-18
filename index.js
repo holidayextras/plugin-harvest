@@ -1,3 +1,3 @@
-'use strict';
+'use strict'
 
-module.exports = require( './lib/pluginHarvest.js' );
+module.exports = require('./lib/pluginHarvest.js')
