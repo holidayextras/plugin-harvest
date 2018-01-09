@@ -35,13 +35,16 @@
     "chai": "4.0.2",
     "chai-as-promised": "7.0.0",
     "deployment-helpers": "git+ssh://git@github.com:holidayextras/deployment-helpers.git",
-    "hapi": "17.1.1",
+    "hapi": "17.x.x",
     "istanbul": "0.4.5",
     "lodash": "4.17.4",
     "mocha": "3.4.2",
     "rewire": "2.5.2",
     "sinon": "1.12.2",
     "standard": "10.0.2"
+  },
+  "peerDependencies": {
+    "hapi": "^17.x.x"
   },
   "standard": {
     "globals": [
