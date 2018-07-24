@@ -1,7 +1,5 @@
 # plugin-harvest
 
-[![Circle CI](https://circleci.com/gh/holidayextras/plugin-harvest/tree/master.svg?style=svg&circle-token=05a70f71a614d4fe9b05c67972e171fec72a3687)](https://circleci.com/gh/holidayextras/plugin-harvest)
-
 ## About
 
 A [hapi](http://hapijs.com/) plugin to connect to a CouchDB database with encoded baskets
