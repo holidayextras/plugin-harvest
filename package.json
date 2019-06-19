@@ -1,7 +1,7 @@
 {
   "name": "plugin-harvest",
   "description": "A hapi Plugin to connect to a CouchDB database with encoded baskets",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "homepage": "https://github.com/holidayextras/plugin-harvest",
   "author": {
     "name": "Shortbreaks",
@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "harvest": "git+ssh://git@github.com:holidayextras/harvest.git#v2.0.1",
-    "lodash": "3.1.0",
+    "lodash": "4.17.11",
     "nano": "6.4.2",
     "q": "1.5.1"
   },
@@ -38,8 +38,7 @@
     "deployment-helpers": "git+ssh://git@github.com:holidayextras/deployment-helpers.git",
     "hapi": "17.x.x",
     "istanbul": "0.4.5",
-    "lodash": "4.17.4",
-    "mocha": "3.4.2",
+    "mocha": "^6.1.4",
     "rewire": "2.5.2",
     "sinon": "1.12.2",
     "standard": "10.0.2"
