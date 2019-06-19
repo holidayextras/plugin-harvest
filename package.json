@@ -27,7 +27,7 @@
     "deploy": "./scripts/deploy.sh"
   },
   "dependencies": {
-    "harvest": "git+ssh://git@github.com:holidayextras/harvest.git#v2.0.1",
+    "harvest": "git+ssh://git@github.com:holidayextras/harvest.git#v2.2.1",
     "lodash": "4.17.11",
     "nano": "6.4.2",
     "q": "1.5.1"
