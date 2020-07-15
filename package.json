@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "harvest": "git+ssh://git@github.com:holidayextras/harvest.git#v2.2.1",
-    "lodash": "4.17.11",
+    "lodash": "4.17.19",
     "nano": "6.4.2",
     "q": "1.5.1"
   },
