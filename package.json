@@ -38,7 +38,7 @@
     "deployment-helpers": "git+ssh://git@github.com:holidayextras/deployment-helpers.git",
     "hapi": "17.x.x",
     "istanbul": "0.4.5",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "rewire": "2.5.2",
     "sinon": "1.12.2",
     "standard": "10.0.2"
