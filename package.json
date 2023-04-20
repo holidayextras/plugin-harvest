@@ -44,7 +44,7 @@
     "standard": "10.0.2"
   },
   "peerDependencies": {
-    "hapi": "^20.x.x"
+    "@hapi/hapi": "^20.x.x"
   },
   "standard": {
     "globals": [
