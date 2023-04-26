@@ -1,33 +1,33 @@
 /* eslint no-unused-expressions:0 */
 'use strict'
 
-var _ = require('lodash')
-var chai = require('chai')
-var chaiAsPromised = require('chai-as-promised')
+const _ = require('lodash')
+const chai = require('chai')
+const chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
-var expect = chai.expect
-var sinon = require('sinon')
+const expect = chai.expect
+const sinon = require('sinon')
 
-var postBasket = require('../lib/postBasket')
+const postBasket = require('../lib/postBasket')
 
 // Stop the Tests from interfering with each other by returning clones of the fixtures
 function loadTestResource (location) {
   return _.cloneDeep(require(location))
 }
 
-var successfulHarvestDb = {
+const successfulHarvestDb = {
   insert: function (document, callback) {
     callback(null, {})
   }
 }
 
-var failedHarvestDb = {
+const failedHarvestDb = {
   insert: function (id, callback) {
     callback(new Error('An error has occurred'), null)
   }
 }
 
-var harvest = {
+const harvest = {
   createBasket: function () {
     return {}
   },
@@ -86,7 +86,7 @@ describe('LIB: postBasket', function () {
 
   describe('exceptions thrown', function () {
     before(function () {
-      sinon.stub(harvest, 'getSharedBasket', function () {
+      sinon.stub(harvest, 'getSharedBasket').callsFake(function () {
         throw new Error('Fake error')
       })
     })
