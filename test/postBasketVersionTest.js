@@ -1,21 +1,21 @@
 /* eslint no-unused-expressions:0 */
 'use strict'
 
-var _ = require('lodash')
-var chai = require('chai')
-var chaiAsPromised = require('chai-as-promised')
+const _ = require('lodash')
+const chai = require('chai')
+const chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
-var expect = chai.expect
-var sinon = require('sinon')
+const expect = chai.expect
+const sinon = require('sinon')
 
-var postBasketVersion = require('../lib/postBasketVersion')
+const postBasketVersion = require('../lib/postBasketVersion')
 
 // Stop the Tests from interfering with each other by returning clones of the fixtures
 function loadTestResource (location) {
   return _.cloneDeep(require(location))
 }
 
-var harvestDbWithSuccessfulGetAndInsert = {
+const harvestDbWithSuccessfulGetAndInsert = {
   get: function (id, callback) {
     callback(null, {})
   },
@@ -24,7 +24,7 @@ var harvestDbWithSuccessfulGetAndInsert = {
   }
 }
 
-var harvestDbWithSuccessfulGetAndFailedInsert = {
+const harvestDbWithSuccessfulGetAndFailedInsert = {
   get: function (id, callback) {
     callback(null, {})
   },
@@ -33,13 +33,13 @@ var harvestDbWithSuccessfulGetAndFailedInsert = {
   }
 }
 
-var harvestDbWithFailedGet = {
+const harvestDbWithFailedGet = {
   get: function (id, callback) {
     callback(new Error('An error has occurred getting document'), null)
   }
 }
 
-var harvest = {
+const harvest = {
   getSharedBasket: function () {
     return {}
   },
@@ -129,7 +129,7 @@ describe('LIB: postBasketVersion', function () {
 
   describe('exception thrown in addVersion', function () {
     before(function () {
-      sinon.stub(harvest, 'addVersion', function () {
+      sinon.stub(harvest, 'addVersion').callsFake(function () {
         throw new Error('Fake error')
       })
     })
@@ -145,7 +145,7 @@ describe('LIB: postBasketVersion', function () {
 
   describe('exception thrown in getSharedBasket', function () {
     before(function () {
-      sinon.stub(harvest, 'getSharedBasket', function () {
+      sinon.stub(harvest, 'getSharedBasket').callsFake(function () {
         throw new Error('Fake error')
       })
     })

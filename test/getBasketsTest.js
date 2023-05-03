@@ -1,21 +1,21 @@
 /* eslint no-unused-expressions:0 */
 'use strict'
 
-var _ = require('lodash')
-var chai = require('chai')
-var chaiAsPromised = require('chai-as-promised')
+const _ = require('lodash')
+const chai = require('chai')
+const chaiAsPromised = require('chai-as-promised')
 chai.use(chaiAsPromised)
-var expect = chai.expect
-var sinon = require('sinon')
+const expect = chai.expect
+const sinon = require('sinon')
 
-var getBaskets = require('../lib/getBaskets')
+const getBaskets = require('../lib/getBaskets')
 
 // Stop the Tests from interfering with each other by returning clones of the fixtures
 function loadTestResource (location) {
   return _.cloneDeep(require(location))
 }
 
-var successfulHarvestDb = {
+const successfulHarvestDb = {
   view: function (designDocument, view, params, callback) {
     callback(null, {
       rows: [
@@ -26,13 +26,13 @@ var successfulHarvestDb = {
   }
 }
 
-var failedHarvestDb = {
+const failedHarvestDb = {
   view: function (designDocument, view, params, callback) {
     callback(new Error('An error has occurred'), null)
   }
 }
 
-var harvest = {
+const harvest = {
   getSharedBasket: function () {
     return {}
   }
@@ -48,7 +48,7 @@ describe('LIB: getBaskets', function () {
   })
 
   it('getBaskets should throw an error if we are unable to make a search based on options passed in', function () {
-    var options = {}
+    const options = {}
     return getBaskets(harvest, successfulHarvestDb, options).then(function () {}, function (error) {
       expect(error).to.have.property('error').that.is.an.instanceof(TypeError)
       expect(error.error.message).to.equal('invalid keys within options')
